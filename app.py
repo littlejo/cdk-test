@@ -27,6 +27,6 @@ common_tags.append( core.CfnTag( key="Stage", value=stage))
 
 
 
-EnvironmentStack(app, "environment-{}".format(stage), tags=common_tags, name_extension=global_conf["global"]["extension"]+stage, stage=stage )
+EnvironmentStack(app, "environment-{}".format(stage), tags=common_tags, name_extension=global_conf["global"]["extension"]+stage, stage=stage, conf=global_conf )
 
 app.synth()

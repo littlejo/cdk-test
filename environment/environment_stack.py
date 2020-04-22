@@ -6,7 +6,7 @@ from aws_cdk import (
 
 class EnvironmentStack(core.Stack):
 
-    def __init__(self, scope: core.Construct, id: str, name_extension: str, stage:str, tags:[], **kwargs) -> None:
+    def __init__(self, scope: core.Construct, id: str, name_extension: str, stage:str, tags:[], conf: dict, **kwargs) -> None:
         super().__init__(scope, id, **kwargs)
 
         resource_name = name_extension+"-vpc.main"
@@ -17,16 +17,6 @@ class EnvironmentStack(core.Stack):
             max_azs=2,
             # configuration will create 3 groups in 2 AZs = 6 subnets.
             subnet_configuration=[
-                #_ec2.SubnetConfiguration(
-                #subnet_type=_ec2.SubnetType.PUBLIC,
-                #name="Public",
-                #cidr_mask=24
-            #),
-            #_ec2.SubnetConfiguration(
-            #    subnet_type=_ec2.SubnetType.PRIVATE,
-            #    name="Private",
-            #    cidr_mask=24
-            #), 
             _ec2.SubnetConfiguration(
                 subnet_type=_ec2.SubnetType.ISOLATED,
                 name="Isolated",
