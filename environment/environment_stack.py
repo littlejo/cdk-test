@@ -13,18 +13,15 @@ class EnvironmentStack(core.Stack):
 
         self.vpc = _ec2.Vpc(self, 
             resource_name,
-            cidr="10.0.0.0/23",
-            max_azs=2,
-            # configuration will create 3 groups in 2 AZs = 6 subnets.
+            cidr=conf["vpc"]["cidr"],
+            max_azs=conf["vpc"]["max_az"],
             subnet_configuration=[
             _ec2.SubnetConfiguration(
                 subnet_type=_ec2.SubnetType.ISOLATED,
-                name="Isolated",
-                cidr_mask=24
-            )
+                name=conf["vpc"]["subnet_name"],
+                cidr_mask=conf["vpc"]["subnet_mask"]
+              )
             ],
-            # nat_gateway_provider=_ec2.NatProvider.gateway(),
-            #nat_gateways=2,
             )
             
         core.CfnOutput(self, "Output", 

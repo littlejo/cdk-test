@@ -4,8 +4,9 @@
         "extension": "poc."
     },
     "vpc" : {
-        "name" : "vpc",
         "cidr" : "10.0.0.0/23",
-        "subnet_mask" : 24
+        "max_az" : 2,
+        "subnet_mask" : 24,
+        "subnet_name" : "subnet"
     }
 }
