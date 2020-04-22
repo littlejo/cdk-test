@@ -1,0 +1,6 @@
+{
+    "global" : {
+        "project" : "tds-lz-template",
+        "extension": "tds-lz."
+    }
+}
