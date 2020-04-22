@@ -1,6 +1,6 @@
 {
     "global" : {
-        "project" : "tds-lz-template",
-        "extension": "tds-lz."
+        "project" : "poc-template",
+        "extension": "poc."
     }
 }
